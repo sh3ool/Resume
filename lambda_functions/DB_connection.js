@@ -22,7 +22,7 @@ const connectToDatabase = async (uri) => {
 };
 
 const queryDatabase = async (db) => {
-  const DB_connection = await db.collection("DB_connection").find({}).toArray();
+  const DB_connection = await db.collection("sample_airbnb").find({}).toArray();
 
   return {
     statusCode: 200,
