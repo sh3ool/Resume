@@ -1,0 +1,4 @@
+[build]
+  # Directory with the serverless Lambda functions
+  functions = "lambda_functions"
+  
