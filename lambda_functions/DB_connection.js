@@ -3,7 +3,7 @@ console.log("Hello !");
 const MongoClient = require("mongodb").MongoClient;
 
 const MONGODB_URI = process.env.MONGODB_URI;
-const DB_NAME = 'Cluster0';
+const DB_NAME = 'sample_airbnb';
 
 let cachedDb = null;
 console.log("Hello world!");
@@ -29,7 +29,7 @@ const queryDatabase = async (db) => {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(pokemon),
+    body: JSON.stringify(DB_connection),
   };
 };
 
