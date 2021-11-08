@@ -4,7 +4,7 @@ const MONGODB_URI = process.env.MONGODB_URI;
 const DB_NAME = 'Cluster0';
 
 let cachedDb = null;
-
+console.log("Hello world!");
 const connectToDatabase = async (uri) => {
   // we can cache the access to our database to speed things up a bit
   // (this is the only thing that is safe to cache here)
