@@ -22,7 +22,7 @@ const connectToDatabase = async (uri) => {
 };
 
 const queryDatabase = async (db) => {
-  const pokemon = await db.collection("pokemon").find({}).toArray();
+  const DB_connection = await db.collection("DB_connection").find({}).toArray();
 
   return {
     statusCode: 200,
