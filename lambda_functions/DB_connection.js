@@ -13,7 +13,7 @@ const connectToDatabase = async (uri) => {
   const client = await MongoClient.connect(uri, {
     useUnifiedTopology: true,
   });
-
+  console.log("connected 1");
   cachedDb = client.db(DB_NAME);
 
   return cachedDb;
