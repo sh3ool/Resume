@@ -1,4 +1,5 @@
 // test script
+module.exports.handler = async (event, context) => {
 import fetch from "node-fetch";
 
 const postRequest = await fetch("/.netlify/functions/pokemon", {
@@ -15,3 +16,4 @@ const postRequest = await fetch("/.netlify/functions/pokemon", {
   const newListJson = await newGetRequest.json();
   
   console.log("GET request new result", newListJson);
+}
