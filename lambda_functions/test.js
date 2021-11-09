@@ -1,5 +1,5 @@
 // test script
-
+console.log("test");
 const postRequest = await fetch("/.netlify/functions/pokemon", {
     method: "POST",
     body: JSON.stringify({
