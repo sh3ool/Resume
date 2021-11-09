@@ -32,6 +32,21 @@ const queryDatabase = async (db) => {
     body: JSON.stringify(DB_connection),
   };
 };
+// ./lambda_functions/DB_connection.js
+
+const pushToDatabase = async (db, data) => {
+    const testData = {
+      name: data.name,
+      number: data.number,
+    };
+  
+    if (testData.name && testData.number) {
+      await db.collection("sample_airbnb").insertMany([data]);
+      return { statusCode: 201 };
+    } else {
+      return { statusCode: 422 };
+    }
+  };
 
 module.exports.handler = async (event, context) => {
   // otherwise the connection will never complete, since
@@ -39,5 +54,13 @@ module.exports.handler = async (event, context) => {
   context.callbackWaitsForEmptyEventLoop = false;
 
   const db = await connectToDatabase(MONGODB_URI);
-  return queryDatabase(db);
+  
+  switch (event.httpMethod) {
+    case "GET":
+      return queryDatabase(db);
+    case "POST":
+      return pushToDatabase(db, JSON.parse(event.body));
+    default:
+      return { statusCode: 400 };
+  }
 };
