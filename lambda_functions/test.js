@@ -1,11 +1,10 @@
 // test script
-console.log("test");
-const postRequest =  fetch("/.netlify/functions/pokemon", {
-    method: "POST",
-    body: JSON.stringify({
-      name: "Pikachu",
-      number: 25,
-    }),
-  });
-  
-  console.log("POST request status code", postRequest.status);
+
+
+var xhr = new XMLHttpRequest();
+xhr.open("POST", "/.netlify/functions/pokemon", true);
+xhr.setRequestHeader('Content-Type', 'application/json');
+xhr.send(JSON.stringify({
+    name: "Pikachu",
+    number: 25,
+}));
