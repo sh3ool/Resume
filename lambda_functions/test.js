@@ -1,5 +1,4 @@
 // test script
-import fetch from "node-fetch";
 
 module.exports.handler = async (event, context) => {
 
