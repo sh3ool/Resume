@@ -1,6 +1,7 @@
 // test script
-module.exports.handler = async (event, context) => {
 import fetch from "node-fetch";
+
+module.exports.handler = async (event, context) => {
 
 const postRequest = await fetch("/.netlify/functions/pokemon", {
     method: "POST",
